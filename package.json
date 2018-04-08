@@ -1,0 +1,30 @@
+{
+  "name": "crud_node",
+  "version": "1.0.0",
+  "description": "crud",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joelciomatias/crud_node.git"
+  },
+  "keywords": [
+    "deployd"
+  ],
+  "author": "joelcio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joelciomatias/crud_node/issues"
+  },
+  "homepage": "https://github.com/Joelciomatias/crud_node#readme",
+  "dependencies": {
+    "deployd": "^0.8.7",
+    "express": "^4.11.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "0.12.x"
+  }
+}

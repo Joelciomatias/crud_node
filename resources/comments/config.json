@@ -1,0 +1,53 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"comment": {
+			"name": "comment",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "comment",
+			"order": 1
+		},
+		"profissao": {
+			"name": "profissao",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "profissao",
+			"order": 2
+		},
+		"nascimento": {
+			"name": "nascimento",
+			"type": "date",
+			"typeLabel": "date",
+			"required": false,
+			"id": "nascimento",
+			"order": 3
+		},
+		"endereco": {
+			"name": "endereco",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "endereco",
+			"order": 4
+		},
+		"telefone": {
+			"name": "telefone",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "telefone",
+			"order": 5
+		}
+	}
+}
