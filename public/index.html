@@ -1,88 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Deployd Tutorial</title>
-    <style type="text/css">
-        body { font-size: 16pt; }
-        .container { width: 960px; margin-left: auto; margin-right: auto; }
-        form { border: #cccccc 1px solid; padding: 20px; margin-bottom: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-        .form-element { margin-bottom: 10px; }
-        #refresh-btn { margin-bottom: 20px; }
-        .comment { padding: 10px; margin-bottom: 10px; border-bottom: #cccccc 1px solid; }
-        .comment .links { float: right; }
-        .comment .links a { margin-left: 10px; }
-        .comment .author { font-style: italic; }
-        h4 {
+    <head>
+        <title>Crud Pacientes</title>
+        <link rel="stylesheet" href="style/stack.css">
+        <link rel="stylesheet" href="style/style.css">
+        <script src="js/riot+compiler.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+        
+            <crud></crud>
+            <crud-tabela></crud-tabela>
             
-            margin-bottom: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div id="comments">
-            <form id="comment-form">
-                <h3>Cadastro de pacientes</h3>
-                <div class="form-element">
-                    <label for="name">Nome: </label>
-                    <input type="text" id="name" name="name" />
-                    <br>
-                    <label for="nascimento">Nascimento: </label>
-                    <input type="date" id="nascimento" name="nascimento" />
-                    </br>
-                    <label for="endereco">Endereço: </label>
-                    <input type="text" id="endereco" name="endereco">
-                    </br>       
-                    <label for="telefone">Telefone: </label>
-                    <input type="number" id="telefone" name="telefone">
-                    <br>
-                    <label for="profissao">Profissão: </label>
-                    <input type="text" id="profissao" name="profissao" />
-                    <br>
-                    <label for="comment">Comentário: </label>
-                    <input id="comment" name="comment">
-                    </br>
-                    <input type="submit" value="Salvar"/>
-                    <input type="reset" name="limpa" id="limpa" value="Limpar Dados" />
-                </div>
-            </form>
-            <button onclick="listarDados()" type="submit">Listar todos</button>
         </div>
-
-        <p id="cabecalho"></p>
-        <p id="demo"></p>
-        <p>teste</p>
-
-        <!-- <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Nacimento</th>
-                        <th>Endereço</th>
-                        <th>Telefone</th>
-                        <th>Prossisao</th>
-                        <th>Comentário</th>
-                    </tr>
-                </thead>
-                <tbody id="listaPacientes">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
-       
-
-    </div>
-    
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="/dpd.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-</body>
+        <script type="riot/tag" src="tags/crud.tag"></script>
+        <script type="riot/tag" src="tags/crud-tabela.tag"></script>
+        <script>riot.mount('*');</script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="/dpd.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
+    </body>
 </html>

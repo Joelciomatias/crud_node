@@ -1,3 +1,0 @@
-npm init 
-npm install deployd-cli -g
-npm i --save deployd

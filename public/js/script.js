@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    document.getElementById('comment-form').reset();
+    
 
 //funcao para mostrar erros
     function showError(error) {
