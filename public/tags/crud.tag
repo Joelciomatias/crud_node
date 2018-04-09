@@ -3,7 +3,7 @@
         <form id="comment-form">
             <h3>Cadastro de pacientes</h3>
             <div class="form-element">
-                <label for="name">Nome: 
+                <label for="name">Nome do Paciente: 
                     <input type="text" id="name" name="name" />
                 </label>
                 <label for="nascimento">Nascimento: 
