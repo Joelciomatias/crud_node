@@ -1,8 +1,9 @@
 <crud>
   <div id="comments">
         <form id="comment-form">
-            <h3>Cadastro de pacientes</h3>
-            <div class="form-element">
+            <h2 class="ui header"><i class="user icon"></i>Cadastro de Pacientes</h2> 
+            <div class="ui divider"></div>       
+            <div class="ui form">
                 <label for="name">Nome do Paciente: 
                     <input type="text" id="name" name="name" />
                 </label>
@@ -21,12 +22,14 @@
                 <label for="comment">Comentário: 
                     <input type="text" id="comment" name="comment">
                 </label>
-                <input type="submit" value="Salvar"/>
-                <input type="reset" name="limpa" id="limpa" value="Limpar Dados" />
+                <div class="ui divider"></div>
+                <button class="ui primary button" type="submit" value="Salvar"><i class="save icon"></i>Gravar</button>
+                <button class="ui secondary button"type="reset" name="limpa" id="limpa" value="Limpar Dados"><i class="eraser icon"></i>Limpar dados</button>
+                
             </div>
         </form>
-        <button onclick="listarDados()" type="submit">Listar Pacientes</button>
-        <button onclick="#" type="submit">Alterar Paciente</button>
-        <button onclick="#" type="submit">Excluir Paciente</button>
+        <button class="ui primary button" onclick="listarDados()" type="submit"><i class="list icon"></i>Listar Pacientes</button>
+        <button class="ui secondary button"  onclick="#" type="submit"><i class="edit icon"></i>Alterar Paciente</button>
+        <button class="ui negative button"  onclick="#" type="submit"><i class="trash icon"></i>Excluir Paciente</button>
     </div>
 </crud>
