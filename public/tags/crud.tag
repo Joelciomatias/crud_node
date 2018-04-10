@@ -23,7 +23,7 @@
                     <input type="text" id="comment" name="comment">
                 </label>
                 <div class="ui divider"></div>
-                <button class="ui primary button" type="submit" value="Salvar"><i class="save icon"></i>Gravar</button>
+                <button class="ui primary button"value="Salvar"><i class="save icon"></i>Gravar</button>
                 <button class="ui secondary button"type="reset" name="limpa" id="limpa" value="Limpar Dados"><i class="eraser icon"></i>Limpar dados</button> 
             </div>
         </form>

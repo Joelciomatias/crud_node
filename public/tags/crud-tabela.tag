@@ -1,5 +1,5 @@
 <crud-tabela>
-    <button class="ui primary button" onclick="{ opts.listarDados }" type="submit"><i class="list icon"></i>Listar Pacientes</button>
+    <button class="ui primary button" onclick="{ listarDados }"><i class="list icon"></i>Listar Pacientes</button>
     <button class="ui secondary button"  onclick="#" type="submit"><i class="edit icon"></i>Alterar Paciente</button>
     <button class="ui negative button"  onclick="#" type="submit"><i class="trash icon"></i>Excluir Paciente</button>
     <div class="ui container">
@@ -8,10 +8,12 @@
                 <tr>
                 <th>Nome</th>
                 <th>Nascimento</th>
-                <th>Endereco</th>
+                <th>Endereço</th>
                 <th>Telefone</th>
-                <th>Profissao</th>
-                <th>Comentrio</th>
+                <th>Profissão</th>
+                <th>Comentário</th>
+                <th>id</th>
+                 <th>button</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,20 +23,39 @@
                     <td>{ comment.endereco }</td>
                     <td>{ comment.telefone }</td>
                     <td>{ comment.profissao }</td>
-                    <td>{ comment.comment }</td>
-                </tr>       
+                    <td>{ comment.comment}</td>
+                    <td>{ comment.id}</td>
+                    <td>  
+                       <div class="ui icon buttons">
+                            <button type="submit" onclick="editarPaciente()" class="ui black button">
+                                <i class="edit icon"></i>
+                            </button>
+                            <button type="submit" onclick="{ excluirPaciente(comment.id) }" class="ui red button">
+                                <i class="trash icon"></i>
+                            </button>
+                       </div>                 
+                    <td>
             </tbody>
         </table>
     </div>
     <script>   
-        opts.listarDados = function () {
+
+        this.listarDados = function () {
             dpd.comments.get(function (result, erro) {
                 if(erro) 
+                
                     return console.log(erro);
                 opts.comentarios = result;
                 riot.update();
             });
         }
+        this.excluirPaciente = function (id){
+               <!--  dpd.comments.del(id, function (err) {
+                if(err) console.log(err);
+             });
+              -->
+           
+           console.log(id);
+        }   
     </script>
-
 </crud-tabela>
