@@ -30,7 +30,7 @@
                             <button type="submit" onclick="editarPaciente()" class="ui black button">
                                 <i class="edit icon"></i>
                             </button>
-                            <button type="submit" onclick="{ excluirPaciente(comment.id) }" class="ui red button">
+                            <button type="submit" data-commentid="{ comment.id }" onclick="{ excluirPaciente }" class="ui red button">
                                 <i class="trash icon"></i>
                             </button>
                        </div>                 
@@ -49,13 +49,11 @@
                 riot.update();
             });
         }
-        this.excluirPaciente = function (id){
-               <!--  dpd.comments.del(id, function (err) {
-                if(err) console.log(err);
-             });
-              -->
+
+        this.excluirPaciente = function (event){
+             
            
-           console.log(id);
+           console.log(event.target.dataset);
         }   
     </script>
 </crud-tabela>
