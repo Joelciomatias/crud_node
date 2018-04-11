@@ -6,9 +6,13 @@ function formataData(data) {
     
     return novadata;
 }
-
-
-
+$(document).ready(function() {
+    //funcao para scroll suave
+        $(".scroll").click(function(event){        
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+        });
+    });
 
 $(document).ready(function() {
 
@@ -17,10 +21,7 @@ $(document).ready(function() {
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
     });
-    
-
-
-    
+        
     function showError(error) {
         var message = "An error occurred";
         if (error.message) {
@@ -65,6 +66,3 @@ $(document).ready(function() {
     });
 
 });
-
-
-
