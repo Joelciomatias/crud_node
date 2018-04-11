@@ -1,6 +1,6 @@
 <crud-tabela>
     <button class="ui primary button" onclick="{ listarDados }"><i class="list icon"></i>Listar Pacientes</button>
-  
+     <div class="ui divider"></div>
     <div class="ui container">
         <table if="{ typeof opts.comentarios != 'undefined' }" class="ui celled table">
             <thead>
@@ -59,16 +59,17 @@
         }  
           
         this.alterarPaciente = function (event){  
-      
+              this.listarDados();
            id = (event.target.dataset.commentid)
              dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
                     , function(result, err) { 
                   if(err) return console.log(err);
             console.log(result, result.id);
+              this.listarDados();
             riot.update();
             });   
-         
-           // this.scroolSuave(event);
+              this.listarDados();
+            //this.scroolSuave(event);
           
 
         }    
