@@ -6,22 +6,23 @@ function formataData(data) {
     
     return novadata;
 }
-$(document).ready(function() {
-    //funcao para scroll suave
-        $(".scroll").click(function(event){        
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
-        });
-    });
+
 
 $(document).ready(function() {
 
-    //funcao para scroll suave
+    
     $(".scroll").click(function(event){        
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+        var id = $(this).attr('href'),
+        targetOffset = $(id).offset().top;
+            
+        $('html, body').animate({ 
+            scrollTop: targetOffset - 100
+        }, 500);
     });
-        
+
+
+
     function showError(error) {
         var message = "An error occurred";
         if (error.message) {
