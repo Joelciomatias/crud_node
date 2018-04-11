@@ -9,7 +9,17 @@ function formataData(data) {
 
 
 
+
 $(document).ready(function() {
+
+    //funcao para scroll suave
+    $(".scroll").click(function(event){        
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+    });
+    
+
+
     
     function showError(error) {
         var message = "An error occurred";
@@ -27,14 +37,12 @@ $(document).ready(function() {
 
     //funcao para salvar no banco
     $('#comment-form').submit(function() {
-        //Get the data from the form
         var name = $('#name').val();
         var comment = $('#comment').val();
         var profissao = $('#profissao').val();
         var endereco = $('#endereco').val();
         var nascimento = $('#nascimento').val();
         var telefone = $('#telefone').val();
-     
         dpd.comments.post({
             name: name,
             comment: comment,

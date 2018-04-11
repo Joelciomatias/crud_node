@@ -27,8 +27,8 @@
                     <td>{ comment.id}</td>
                     <td>  
                        <div class="ui icon buttons">
-                            <button type="submit" onclick="editarPaciente()" class="ui black button">
-                                <i class="edit icon"></i>
+                            <button type="submit" onclick="{ alterarPaciente }" class="ui black button">
+                              <i class="edit icon"></i><a class="scroll" href="#comments">
                             </button>
                             <button type="submit" data-commentid="{ comment.id }" onclick="{ excluirPaciente }" class="ui red button">
                                 <i class="trash icon"></i>
@@ -37,6 +37,7 @@
                     <td>
             </tbody>
         </table>
+        
     </div>
     <script>   
 
@@ -54,6 +55,12 @@
              
            
            console.log(event.target.dataset);
-        }   
+        }  
+          
+        this.alterarPaciente = function (event){
+             
+           
+           console.log("alterar");
+        }    
     </script>
 </crud-tabela>
