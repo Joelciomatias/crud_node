@@ -1,5 +1,5 @@
 <crud-tabela>
-    <button class="ui primary button" onclick="{ listarDados }"><i class="list icon"></i>Listar Pacientes</button>
+    <button class="ui primary button" onclick="{ listarDados }"><i class="list icon"></i>Lista Paciente</button>
      <div class="ui divider"></div>
     <div class="ui container">
         <table if="{ typeof opts.comentarios != 'undefined' }" class="ui celled table">
@@ -59,21 +59,41 @@
         }  
           
         this.alterarPaciente = function (event){  
-              this.listarDados();
+             
            id = (event.target.dataset.commentid)
-             dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
+           
+             <!--  dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
                     , function(result, err) { 
                   if(err) return console.log(err);
-            console.log(result, result.id);
+            console.log(result, result.id);  
               this.listarDados();
             riot.update();
-            });   
-              this.listarDados();
-            //this.scroolSuave(event);
-          
+            });   -->
+
+        if(id != undefined){
+            this.popularCampos(id);
+            this.scroolSuave(event);
+        }
 
         }    
+        this.popularCampos = function(id){
 
+            this.id = id
+            console.log("Alterando o id: "+id);
+            var arr = opts.comentarios;
+            var i;
+            for (i = 0; i < arr.length; i++) { 
+               if(arr[i].id === this.id) {
+                document.getElementById('name').value = arr[i].name;
+                document.getElementById('nascimento').value = "1900-01-01";
+                document.getElementById('endereco').value = arr[i].endereco;
+                document.getElementById('telefone').value = arr[i].telefone;
+                document.getElementById('profissao').value = arr[i].profissao;
+                document.getElementById('comment').value = arr[i].comment;
+               }
+            }
+           
+        }
 
 
         this.scroolSuave = function (e) {
