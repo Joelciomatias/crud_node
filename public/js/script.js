@@ -1,27 +1,20 @@
-function formataData(data) {
+function formataDataParaTabela(data) {
     data = data.toString();
     dataformatada = data.substring(0,10);
     split = dataformatada.split('-');
-    novadata = split[2] + "/" +split[2]+"/"+split[0];
+    novadata = split[2] + "/" +split[1]+"/"+split[0];
     
     return novadata;
 }
+function formataDataParaFormulario(data) {
+    data = data.toString();
+    dataformatada = data.substring(0,10);
+    split = dataformatada.split('-');
+    novadata = split[0] + "-" +split[1]+"-"+split[2];
 
-
+    return novadata; 
+}
 $(document).ready(function() {
-
-    
-    $(".scroll").click(function(event){        
-        event.preventDefault();
-        var id = $(this).attr('href'),
-        targetOffset = $(id).offset().top;
-            
-        $('html, body').animate({ 
-            scrollTop: targetOffset - 100
-        }, 500);
-    });
-
-
 
     function showError(error) {
         var message = "An error occurred";
@@ -35,10 +28,13 @@ $(document).ready(function() {
             });
         }
         alert(message);
-    }
+    }  
 
-    //funcao para salvar no banco
+     
+
     $('#comment-form').submit(function() {
+        
+      
         var name = $('#name').val();
         var comment = $('#comment').val();
         var profissao = $('#profissao').val();
@@ -60,10 +56,17 @@ $(document).ready(function() {
                 else  {
                     alert("Dados salvos com sucesso!");
                     document.getElementById("comment-form").reset();
+                   
                 }
         });
-    
+ 
     return false;
+    
     });
 
-});
+  });   
+  
+
+
+
+
