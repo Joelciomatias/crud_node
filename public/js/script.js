@@ -32,7 +32,7 @@ $(document).ready(function() {
 
      
 
-    $('#comment-form').submit(function() {
+    $('#').submit(function() {
         
       
         var name = $('#name').val();
@@ -66,7 +66,4 @@ $(document).ready(function() {
 
   });   
   
-
-
-
 
