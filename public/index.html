@@ -8,17 +8,23 @@
     </head>
     <body>
         <div class="ui container">
-        
+            
+            <login-last></login-last>
             <crud></crud>
             <crud-tabela></crud-tabela>
 
         </div>
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/dpd.js"></script>
         <script type="riot/tag" src="tags/crud.tag"></script>
+        <script type="riot/tag" src="tags/login-last.tag"></script>
         <script type="riot/tag" src="tags/crud-tabela.tag"></script>
+        <script type="text/javascript" src="./js/script.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>   
         <script>
+     
         riot.mount('crud',{
-            title: 'Cadastro de pacientes',
+            titulo: 'Cadastro de pacientes',
             campo: 'Nome: ',
             campo2: 'Nascimento: ',
             campo3: 'Endereco:  ' ,
@@ -26,10 +32,10 @@
             campo5: 'Profissão:',
             campo6: 'Comentário',
         })
-        //riot.mount('crud-tabela');
+        // riot.mount('crud-tabela')
+        //riot.mount('login2');
         </script>
-        <script type="text/javascript" src="/dpd.js"></script>
-        <script type="text/javascript" src="./js/script.js"></script>  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>   
+      
+
     </body>
 </html>

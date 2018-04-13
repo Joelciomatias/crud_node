@@ -1,60 +1,50 @@
 <crud>
-
     <div id="comments">
-        <form ref="crud" onsubmit={ submeter } id="comment-form">
-            <h2 class="ui header"><i class="heartbeat icon"/>{ opts.title }</h2> 
+        <form ref="crud" onsubmit={ submit } id="comment-form">
+            <h2 class="ui header"><i class="heartbeat icon"/>{ opts.titulo }</h2> 
             <div class="ui divider"></div>       
-            <div class="ui form">
-                 { opts.campo}{nome}<input ref="username" onkeyup={ edit }></br>
-                 { opts.campo2 }<input ref="nascimento" onkeyup={ edit }></br>
-                 { opts.campo3 }<input ref="endereco" onkeyup={ edit }></br>
-                 { opts.campo4 }<input ref="telefone" onkeyup={ edit }></br>
-                 { opts.campo5 }<input ref="profissao" onkeyup={ edit }></br>
-                 { opts.campo6 }<input ref="comentario" onkeyup={ edit }></br>
-                 
-
-
-                <!--  <label for="nascimento">Nascimento: 
-                    <input type="date" id="nascimento" name="nascimento" value="1990-06-16"/>
-                </label>
-                <label for="endereco">Endereço: 
-                    <input type="text" id="endereco" name="endereco">
-                </label>
-                <label for="telefone">Telefone: 
-                    <input type="number" id="telefone" name="telefone">
-                </label>
-                <label for="profissao">Profissão:
-                    <input type="text" id="profissao" name="profissao" />
-                </label>
-                <label for="comment">Comentário: 
-                    <input type="text" id="comment" name="comment">
-                </label>
-                
-                <label for="id"> 
-                    <input type="hidden" id="id" name="id">
-                </label>  -->
-                
+            <div class="ui form">  
+                 { opts.campo  }<input ref="username" onkeyup={ edit } oninput={validate}><p>{nome}{eh_valido || ''}</p></br>
+                 { opts.campo2 }<input ref="nascimento"></br>
+                 { opts.campo3 }<input ref="endereco"></br>
+                 { opts.campo4 }<input ref="telefone"></br>
+                 { opts.campo5 }<input ref="profissao"></br>
+                 { opts.campo6 }<input ref="comentario"></br>
+                  <input type="hidden" id="id" name="id">
                 <div class="ui divider"></div>
-                <button ref="submit" class="ui primary button"><i class="save icon"></i>Gravar</button>
-                <button class="ui secondary button" type="reset" name="limpa" id="limpa"><i class="eraser icon"></i>Limpar dados</button> 
-            </div>
+                
+                  <button type="submit" ref="submit" class="ui primary button"><i class="save icon"></i>Gravar</button>
+                <button onclick={clique} class="ui secondary button" type="reset" name="limpa" id="limpa"><i class="eraser icon"></i>Limpar dados</button> 
+            </div> 
         </form>
     </div>  
 <script>
- submeter(e) {
-    var form = this.refs.crud,
 
-        username = this.refs.username.value,
-        nascimento = this.refs.nascimento.value,
-        endereco = this.refs.endereco.value,
-        telefone = this.refs.telefone.value,
-        profissao = this.refs.profissao.value,
-        comentario = this.refs.comentario.value,
-        button = this.refs.submit
-      
-       console.log(username);
- }
-  
+  validate(e){
+    this.eh_valido = (e.target.value.length > 1) ? ' OK' : ' Inválido';
+  }
+
+
+
+clique(e){
+    console.log(e);
+}
+    submit(e) {
+            <!-- var form = this.refs.crud,
+
+            username = this.refs.username.value,
+            nascimento = this.refs.nascimento.value,
+            endereco = this.refs.endereco.value,
+            telefone = this.refs.telefone.value,
+            profissao = this.refs.profissao.value,
+            comentario = this.refs.comentario.value,    
+            button = this.refs.submit-->
+            e.preventDefault();
+            console.log(this.refs);
+              console.log(this);
+        console.log(e.target.elements[0].value);
+    }
+    
     edit(e) {
       this.text = e.target.value
       this.nome = this.text
@@ -67,7 +57,9 @@
         
        
     }
-
+    $(this.root).click(function(){
+       
+    });
 
 
      
@@ -85,4 +77,11 @@
     this.on('unmount', function() { console.log('6:(unmount)');});  -->
 
 </script>
+
+<style>
+    h2 {
+        font-style:italic;
+    }
+  
+</style>
 </crud>
