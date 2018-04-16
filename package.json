@@ -22,7 +22,7 @@
   "dependencies": {
     "deployd": "^0.8.7",
     "express": "^4.11.1",
-    "riot": "^3.9.1"
+    "riot": "^3.9.3"
   },
   "devDependencies": {},
   "engines": {

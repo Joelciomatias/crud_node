@@ -1,0 +1,17 @@
+{
+  "name": "crud",
+  "homepage": "https://github.com/Joelciomatias/crud_node",
+  "authors": [
+    "joelcio_psx@hotmail.com <chuknoia2015>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
