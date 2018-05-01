@@ -67,10 +67,10 @@
                 this.popularCampos(id);
                 this.scroolSuave(event);
             } 
-
-             <!--  dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
+            <!--  TODO  -->
+            <!--  dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
                     , function(result, err) { 
-                  if(err) return console.log(err);
+                    if(err) return console.log(err);
             console.log(result, result.id);  
             this.listarDados();
             riot.update();
@@ -85,7 +85,7 @@
             var arr = opts.comentarios;
             var i;
             for (i = 0; i < arr.length; i++) { 
-               if(arr[i].id === this.id) {
+                if(arr[i].id === this.id) {
                 document.getElementById('name').value = arr[i].name;
                 document.getElementById('nascimento').value = formataDataParaFormulario(arr[i].nascimento);
                 document.getElementById('endereco').value = arr[i].endereco;
@@ -93,9 +93,8 @@
                 document.getElementById('profissao').value = arr[i].profissao;
                 document.getElementById('comment').value = arr[i].comment;
                 document.getElementById('id').value = arr[i].id;
-               }
+                }
             }
-           
         }
 
         this.scroolSuave = function (e) {    
@@ -105,7 +104,8 @@
                 scrollTop: targetOffset - 2000
             }, 1500);  
         }
-         this.scroolSuaveParaBaixo = function (e) {    
+
+        this.scroolSuaveParaBaixo = function (e) {    
             e.preventDefault();
             var targetOffset = this.root.offsetTop;  
             $('html, body').animate({ 

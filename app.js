@@ -7,7 +7,7 @@ var serverPort = process.env.PORT || 3000;
 var nodeEnv = process.env.NODE_ENV || 'development';
 
 var dbOptions = buildDbOptions();
-console.log('Using MongoDB:', dbOptions);
+console.log('Utilizando MongoDB:', dbOptions);
 
 // setup express
 var app = exports.app = express();
@@ -30,7 +30,7 @@ app.use(server.handleRequest);
 // start server
 server.listen(serverPort, function() {
   var serverAddr = server.address().address == '0.0.0.0' ? 'localhost' : server.address().address;
-  console.log('Express & Deployd started.\n\nPlease visit http://%s:%s', serverAddr, server.address().port);
+  console.log('Express & Deployd Iniciados.\n\nAbra o endereço http://localhost:%s', server.address().port);
 });
 
 
