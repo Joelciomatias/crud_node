@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr each="{ comment in opts.comentarios }">
+                <tr each="{ comment in this.pacientes }">
                     <td>{ comment.name }</td>
                     <td>{ formataDataParaFormulario(comment.nascimento) }</td>
                     <td>{ comment.endereco }</td>
@@ -36,76 +36,93 @@
         </table>
         <div class="ui divider"></div>
     </div>
-    <script>   
-        this.listarDados = function () {
+    <script>
+
+        _self = this;
+        
+        _self.listarDados = function () {
             dpd.comments.get(function (result, erro) {
-                if(erro) 
-                    return console.log(erro);
+                if(erro) {
+                    console.log(erro);
+                    alert('Houve um erro ao buscar pacientes.')
+                }
                 opts.comentarios = result;
+                _self.pacientes = result;
                 riot.update();    
             });
         }
 
-        this.excluirPaciente = function (event){
-            this.listarDados();
+        _self.excluirPaciente = function (event){
+            _self.listarDados();
             id = event.target.dataset.commentid;
             
             if (id != undefined) {
                 dpd.comments.del(id, function (err) {
                 if(err) console.log(err + " Registro excluído: " + id);  
-                this.listarDados();
+                _self.listarDados();
                 riot.update();
                 });  
             }
-            this.listarDados();
+            _self.listarDados();
             
         }  
-        this.alterarPaciente = function (event){  
+        _self.alterarPaciente = function (event){ 
+              
+               _self.listarDados(); 
             id = (event.target.dataset.commentid)  
 
             if(id != undefined){
-                this.popularCampos(id);
-                this.scroolSuave(event);
-            } 
+                _self.popularCampos(id);
+                _self.scroolSuave(event);
+                  _self.listarDados();
+            
+            }  else{
+            
+            
+              _self.listarDados();
+            
+                console.log('SEM LOG');
+            }
+
             <!--  TODO  -->
             <!--  dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
                     , function(result, err) { 
                     if(err) return console.log(err);
             console.log(result, result.id);  
-            this.listarDados();
+            _self.listarDados();
             riot.update();
             });   -->
 
         }  
 
-        this.popularCampos = function(id){
+        _self.popularCampos = function(id){
 
             this.id = id
-            console.log("Alterando o registro com o id: "+id);
-            var arr = opts.comentarios;
-            var i;
-            for (i = 0; i < arr.length; i++) { 
-                if(arr[i].id === this.id) {
-                document.getElementById('name').value = arr[i].name;
-                document.getElementById('nascimento').value = formataDataParaFormulario(arr[i].nascimento);
-                document.getElementById('endereco').value = arr[i].endereco;
-                document.getElementById('telefone').value = arr[i].telefone;
-                document.getElementById('profissao').value = arr[i].profissao;
-                document.getElementById('comment').value = arr[i].comment;
-                document.getElementById('id').value = arr[i].id;
+            var array = _self.pacientes;
+            
+            for (var i = 0; i < array.length; i++) { 
+                if(array[i].id == id) {
+                $('#name').val(array[i].name);
+                $('#nascimento').val(formataDataParaFormulario(array[i].nascimento));
+                $('#endereco').val(array[i].endereco);
+                $('#telefone').val(array[i].telefone);
+                $('#profissao').val(array[i].profissao);
+                $('#comment').val(array[i].comment);
+                $('#id').val(array[i].id);
                 }
             }
+            _self.update();
         }
 
-        this.scroolSuave = function (e) {    
+        _self.scroolSuave = function (e) {    
             e.preventDefault();
-            var targetOffset = this.root.offsetTop;  
+            var targetOffset = _self.root.offsetTop;  
             $('html, body').animate({ 
                 scrollTop: targetOffset - 2000
             }, 1500);  
         }
 
-        this.scroolSuaveParaBaixo = function (e) {    
+        _self.scroolSuaveParaBaixo = function (e) {    
             e.preventDefault();
             var targetOffset = this.root.offsetTop;  
             $('html, body').animate({ 
