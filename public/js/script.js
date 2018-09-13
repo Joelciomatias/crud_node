@@ -21,7 +21,7 @@ function formataDataParaFormulario(data) {
 
 
 
-$(document).ready(function() {
+$(function() {
 
 /*Função para formatar e mostrar mensagems de erro*/
 // TODO
