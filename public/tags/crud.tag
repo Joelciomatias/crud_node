@@ -43,7 +43,7 @@
             profissao: this.refs.profissao.value,
             comment: this.refs.comentario.value
             };
-            dpd.comments.post(dados
+            dpd.patients.post(dados
             , function(comment, error) {
                 if (error) {
                     var message = "Houve um erro: "

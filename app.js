@@ -2,7 +2,7 @@
 
 var express = require('express');
 var http = require('http');
-
+var path = require("path");
 var serverPort = process.env.PORT || 3000;
 var nodeEnv = process.env.NODE_ENV || 'development';
 
@@ -13,7 +13,29 @@ console.log('Utilizando MongoDB:', dbOptions);
 var app = exports.app = express();
 var server = http.createServer(app);
 
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}
+
+/*  "/api/events"
+ *    GET: finds all contacts
+ *    POST: creates a new contact
+ */
+
 // Define a new route
+app.get('api/events', function (req, res) {
+  dpd.events.get(function(events,err){
+    if (err) {
+      handleError(res, err.message, "Não foi possível recuperar os eventos");
+    } else {
+        res.send(events);
+    }
+  })
+});
+
+
 app.get('/hello-express', function (req, res) {
   res.send('Hello Deployd!');
 });

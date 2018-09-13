@@ -38,7 +38,7 @@
     </div>
     <script>   
         this.listarDados = function () {
-            dpd.comments.get(function (result, erro) {
+            dpd.patients.get(function (result, erro) {
                 if(erro) 
                     return console.log(erro);
                 opts.comentarios = result;
@@ -51,7 +51,7 @@
             id = event.target.dataset.commentid;
             
             if (id != undefined) {
-                dpd.comments.del(id, function (err) {
+                dpd.patients.del(id, function (err) {
                 if(err) console.log(err + " Registro excluído: " + id);  
                 this.listarDados();
                 riot.update();
@@ -68,7 +68,7 @@
                 this.scroolSuave(event);
             } 
             <!--  TODO  -->
-            <!--  dpd.comments.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
+            <!--  dpd.patients.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
                     , function(result, err) { 
                     if(err) return console.log(err);
             console.log(result, result.id);  
