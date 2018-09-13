@@ -41,7 +41,7 @@
         _self = this;
         
         _self.listarDados = function () {
-            dpd.comments.get(function (result, erro) {
+            dpd.patients.get(function (result, erro) {
                 if(erro) {
                     console.log(erro);
                     alert('Houve um erro ao buscar pacientes.')
