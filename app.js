@@ -59,6 +59,11 @@ server.listen(serverPort, function() {
 // Build the options for the DB based on env
 function buildDbOptions() {
 
+  if (process.env.MONGODB_URI) {
+    console.log('Variable MONGODB_URI exists', process.env.MONGODB_URI);
+    return { connectionString: process.env.MONGODB_URI };
+  }
+
   // On Heroku, Mongolab add this variable to
   if (process.env.MONGOLAB_URI) {
     console.log('Variable MONGOLAB_URI exists', process.env.MONGOLAB_URI);
