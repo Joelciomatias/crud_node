@@ -13,7 +13,7 @@
                 <input type="hidden" id="id" name="id">
                 <div class="ui divider"></div>
                 <button type="submit" ref="submit" class="ui primary button"><i class="save icon"></i>Gravar</button>
-                <button onclick={clique} class="ui secondary button" type="reset" name="limpa" id="limpa"><i class="eraser icon"></i>Limpar dados</button> 
+                <button class="ui secondary button" type="reset" name="limpa" id="limpa"><i class="eraser icon"></i>Limpar dados</button> 
             </div> 
         </form>
     </div>  
@@ -22,14 +22,7 @@
     validate(e){
         <!--  TODO
         this.eh_valido = (e.target.value.length > 1) ? ' OK' : ' Inválido';  -->
-    }
-
-    clique(e){
-        <!--  TODO  -->
-       
-    }
-
-    
+    }  
     carregarDadosNoBanco(e)  {
         // console.log(e.target.elements[0].value);
         var form = this.refs.crud,
@@ -60,13 +53,6 @@
                 }
         });         
     }
-
-    <!--  TODO  -->
-    $(this.root).click(function(){
-        
-    });
-
-
 </script>
 <style>
     h2 {
