@@ -56,16 +56,48 @@
         _self.excluirPaciente = (e) => {
             e.preventDefault();
             var id = e.item.paciente.id;
-            if (typeof(id) != "undefined") {
-                dpd.patients.del(id, function (error) {
-                    if(error) {
-                        showError(error);
-                    } 
-                    _self.listarDados();
-                    riot.update();
-                });  
-            }
-            _self.listarDados();
+            iziToast.question({
+                timeout: 10000,
+                close: false,
+                overlay: true,
+                displayMode: 'once',
+                id: 'question',
+                zindex: 999,
+                title: 'Atenção',
+                message: 'Confirma a exclusão deste registro?',
+                position: 'center',
+                buttons: [
+                    ['<button><b>Confirmar</b></button>', function (instance, toast) {
+            
+                        instance.hide({ transitionOut: 'fadeOut' }, toast,true);
+            
+                    }, true],
+                    ['<button>sair</button>', function (instance, toast) {
+            
+                        instance.hide({ transitionOut: 'fadeOut' }, toast,false);
+            
+                    }],
+                ],
+                onClosing: function(instance, toast, closedBy){
+                    console.info('Closing | closedBy: ', closedBy);
+                    if(closedBy == true){
+                        if (typeof(id) != "undefined") {
+                            dpd.patients.del(id, function (error) {
+                                if(error) {
+                                    showError(error);
+                                } 
+                                _self.listarDados();
+                                riot.update();
+                            });  
+                        }
+                        _self.listarDados();
+                    }
+                },
+                onClosed: function(instance, toast, closedBy){
+                    console.info('Closed | closedBy: ' + closedBy);
+                }
+            });
+
         }  
         _self.alterarPaciente = (e) => { 
             e.preventDefault();
@@ -74,18 +106,11 @@
                 _self.popularCampos(id);
                 _self.scroolSuave(e);
                 _self.listarDados();
-            
+                pacientEditing = true;
+                currentEditingId = id;
             } else {
                 _self.listarDados();
             }
-            <!--  TODO  -->
-            <!--  dpd.patients.put(id, {"name":"foobar","comment":"foobar","profissao":"foobar","endereco":"foobar","telefone":123}
-                    , function(result, err) { 
-                    if(err) return console.log(err);
-            console.log(result, result.id);  
-            _self.listarDados();
-            riot.update();
-            });   -->
         }  
         _self.popularCampos = (id) => {
             var array = _self.pacientes;

@@ -1,3 +1,5 @@
+let pacientEditing = false;
+let currentEditingId = null;
 var formataDataParaTabela = (data) => {
     var novadata = "";
     if(typeof(data) != "undefined"){
