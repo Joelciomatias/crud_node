@@ -1,17 +1,17 @@
 <crud-tabela>
-    <button class="ui primary button" onclick="{ listarDados }"><i class="list icon"></i>Listar Pacientes</button>
+    <button class="ui primary button" id="listar" onclick="{ listarDados }"><i class="list icon"></i>Listar Pacientes</button>
     <div class="ui divider"></div>
     <div class="ui container">
         <table if="{ typeof this.pacientes != 'undefined' }" class="ui celled table">
             <thead>
                 <tr>
-                <th>Nome</th>
-                <th>Nascimento</th>
-                <th>Endereço</th>
-                <th>Telefone</th>
-                <th>Profissão</th>
-                <th>Comentário</th>
-                <th>Editar</th>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Profissão</th>
+                    <th>Comentário</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,19 +23,19 @@
                     <td>{ paciente.profissao }</td>
                     <td>{ paciente.comment}</td>
                     <td>  
-                    <div class="ui icon buttons">
-                        <span data-pacienteId="{ paciente.id }" onclick="{ alterarPaciente }">
-                            <button class="ui black button change">
-                            <i class="edit icon"/>
-                            </button>
-                        </span>
-                        <span data-pacienteId="{ paciente.id }" onclick="{ excluirPaciente }">
-                            <button type="submit" class="ui red button">
-                                <i class="trash icon"></i>
-                            </button>
-                        </span>
-                    </div>               
-                    <td>
+                        <div class="ui icon buttons">
+                            <span data-pacienteId="{ paciente.id }" onclick="{ alterarPaciente }">
+                                <button class="ui black button change">
+                                <i class="edit icon"/>
+                                </button>
+                            </span>
+                            <span data-pacienteId="{ paciente.id }" onclick="{ excluirPaciente }">
+                                <button type="submit" class="ui red button">
+                                    <i class="trash icon"></i>
+                                </button>
+                            </span>
+                        </div>               
+                    </td>
                 </tr>
             </tbody>
         </table>
