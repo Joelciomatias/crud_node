@@ -4,9 +4,8 @@
             <h2 class="ui header"><i class="heartbeat icon"/>{ opts.titulo }</h2> 
             <div class="ui divider"></div>       
             <div class="ui form error">  
-                <div class="field">
-                { opts.campo } <input ref="username" class="ui input error" onblur={ checkInput } id='name' name="name" type="text"></div>
-                { opts.campo2 }<input ref="nascimento" id="nascimento" name="nascimento" type="date"></br>
+                { opts.campo } <input ref="username" autofocus class="ui input error" required onblur={ checkInput } minlength="3" id='name' name="name" type="text">
+                { opts.campo2 }<input ref="nascimento" id="nascimento" name="nascimento" required type="date" min='1900-01-01' max="2019-12-31"></br>
                 { opts.campo3 }<input ref="endereco" id="endereco"></br>
                 { opts.campo4 }<input ref="telefone" id="telefone" type="number" ></br>
                 { opts.campo5 }<input ref="profissao" id="profissao"></br>

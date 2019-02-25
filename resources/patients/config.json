@@ -43,8 +43,8 @@
 		},
 		"telefone": {
 			"name": "telefone",
-			"type": "number",
-			"typeLabel": "number",
+			"type": "string",
+			"typeLabel": "string",
 			"required": false,
 			"id": "telefone",
 			"order": 5

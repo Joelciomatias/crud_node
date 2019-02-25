@@ -44,6 +44,7 @@
     <script>   
         var _self = this;
         _self.listarDados = () => {
+            <!--  insertSample();  -->
             dpd.patients.get(function (result, error) {
                 if(error) {
                     showError(error);
@@ -67,12 +68,12 @@
                 message: 'Confirma a exclusão deste registro?',
                 position: 'center',
                 buttons: [
-                    ['<button><b>Confirmar</b></button>', function (instance, toast) {
+                    ['<button><b>Excluir</b></button>', function (instance, toast) {
             
                         instance.hide({ transitionOut: 'fadeOut' }, toast,true);
             
                     }, true],
-                    ['<button>sair</button>', function (instance, toast) {
+                    ['<button>Sair</button>', function (instance, toast) {
             
                         instance.hide({ transitionOut: 'fadeOut' }, toast,false);
             
@@ -85,7 +86,9 @@
                             dpd.patients.del(id, function (error) {
                                 if(error) {
                                     showError(error);
-                                } 
+                                }
+                                pacientEditing = false;
+                                currentEditingId = null;
                                 _self.listarDados();
                                 riot.update();
                             });  
